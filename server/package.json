@@ -5,7 +5,7 @@
   "type": "module",
   "author": "Srijon Ashraf",
   "dependencies": {
-    "@prisma/client": "^7.2.0",
+    "@prisma/client": "^6.19.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
@@ -16,7 +16,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.9",
-    "prisma": "^7.2.0",
+    "prisma": "^6.19.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
@@ -26,5 +26,8 @@
     "dev": "tsx --watch src/index.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   }
 }

@@ -7,19 +7,19 @@ Provides user management features with search, filtering, user details, and acti
 
 ## ✨ Features
 
-- 🔍 Searchable and filterable users list  
-- 🧾 User details panel with activity indicator  
-- ✅ Toggle user active status with optimistic updates  
-- ↕️ Sort users by name  
-- 📱 Responsive UI with Tailwind CSS  
-- 🛡️ Type-safe frontend and backend with TypeScript  
+- 🔍 Searchable and filterable users list
+- 🧾 User details panel with activity indicator
+- ✅ Toggle user active status with optimistic updates
+- ↕️ Sort users by name
+- 📱 Responsive UI with Tailwind CSS
+- 🛡️ Type-safe frontend and backend with TypeScript
 
 ---
 
 ## 🛠️ Tech Stack
 
 **Frontend:** React, TypeScript, Vite, Tailwind CSS, Shadcn/ui, React Query  
-**Backend:** Express, TypeScript, Prisma ORM, MongoDB, Helmet, CORS, Rate limiting  
+**Backend:** Express, TypeScript, Prisma ORM, MongoDB, Helmet, CORS, Rate limiting
 
 ---
 
@@ -31,7 +31,8 @@ Provides user management features with search, filtering, user details, and acti
 git clone <your-repo-url>
 cd user-dash
 ```
-```
+
+````
 
 ### 2. Install dependencies
 
@@ -43,11 +44,12 @@ npm install
 # Server
 cd ../server
 npm install
-```
+````
 
 ### 3. Setup environment
 
 Copy the example environment file:
+
 ```bash
 cd server
 cp .env.example .env
@@ -63,7 +65,15 @@ npx prisma generate
 npx prisma db push
 ```
 
-### 5. Run the app
+### 5. Seed Database
+
+Populate the database with initial data:
+
+```bash
+npx prisma db seed
+```
+
+### 6. Run the app
 
 ```bash
 # Backend (from server directory)

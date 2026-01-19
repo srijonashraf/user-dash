@@ -1,6 +1,53 @@
-import { Router } from "express";
+import { Request, Response, Router } from "express";
+import { User } from "../generated/prisma/client.js";
+import {
+  getUserById,
+  getUsers,
+  toggleActiveStatus,
+} from "../services/user.service.js";
+import sendResponse from "../lib/utils/api-response.js";
+import catchAsync from "../lib/utils/catch-async.js";
+import { UserQueryParams } from "../types/index.js";
+
 const router = Router();
 
-router.get("/", (req, res) => { /* logic */ });
+router.get(
+  "/",
+  catchAsync(async (req: Request, res: Response) => {
+    const users: User[] = await getUsers(req.query as UserQueryParams);
+    sendResponse<User[]>(res, {
+      statusCode: 200,
+      success: true,
+      message: "Users retrieved successfully",
+      data: users,
+    });
+  }),
+);
+
+router.get(
+  "/:id",
+  catchAsync(async (req: Request, res: Response) => {
+    const user: User = await getUserById(req.params.id as string);
+    sendResponse<User>(res, {
+      statusCode: 200,
+      success: true,
+      message: "User retrieved successfully",
+      data: user,
+    });
+  }),
+);
+
+router.patch(
+  "/:id/toggle-active",
+  catchAsync(async (req: Request, res: Response) => {
+    const user: User = await toggleActiveStatus(req.params.id as string);
+    sendResponse<User>(res, {
+      statusCode: 200,
+      success: true,
+      message: "User status toggled successfully",
+      data: user,
+    });
+  }),
+);
 
 export default router;

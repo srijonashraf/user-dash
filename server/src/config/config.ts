@@ -3,6 +3,7 @@ dotenv.config();
 
 const config = {
   server: {
+    nodeEnv: process.env.NODE_ENV || "development",
     port: process.env.SERVER_PORT
       ? parseInt(process.env.SERVER_PORT, 10)
       : 4500,
