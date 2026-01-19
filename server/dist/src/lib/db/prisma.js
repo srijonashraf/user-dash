@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import { PrismaClient } from "@prisma/client";
 import config from "../../config/config.js";
 /**
  * Prisma Client Singleton

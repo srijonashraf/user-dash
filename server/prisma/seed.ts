@@ -1,4 +1,4 @@
-import { PrismaClient, Role } from "../src/generated/prisma/client.js";
+import { PrismaClient, Role } from "@prisma/client";
 
 const prisma = new PrismaClient();
 

@@ -1,4 +1,4 @@
-import { Prisma, Role, User } from "../generated/prisma/client.js";
+import { Prisma, Role, User } from "@prisma/client";
 import { prisma } from "../lib/db/prisma.js";
 import { trimOrUndefined } from "../lib/utils/string.js";
 import { UserQueryParams } from "../types/index.js";
