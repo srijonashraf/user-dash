@@ -16,6 +16,12 @@ Provides user management features with search, filtering, user details, and acti
 
 ---
 
+## 🌐 Live Demo
+
+**[View Live Application](https://user-dash-tixio.vercel.app)**
+
+---
+
 ## 🛠️ Tech Stack
 
 **Frontend:** React, TypeScript, Vite, Tailwind CSS, Shadcn/ui, React Query  

@@ -7,14 +7,16 @@ interface SortButtonProps {
   disabled?: boolean;
 }
 
-export const SortButton = ({
+export function SortButton({
   sortOrder,
   onChange,
   disabled = false,
-}: SortButtonProps) => {
+}: SortButtonProps) {
   const handleClick = () => {
     onChange(sortOrder === "desc" ? "asc" : "desc");
   };
+
+  const isAscending = sortOrder === "asc";
 
   return (
     <Button
@@ -22,14 +24,22 @@ export const SortButton = ({
       size="sm"
       onClick={handleClick}
       disabled={disabled}
-      className="gap-2"
+      className={cn(
+        "h-10 gap-2 border-border/50 bg-card/50 hover:bg-[oklch(0.52_0.14_55/8%)] hover:border-[oklch(0.52_0.14_55/30%)] transition-all duration-200",
+        "disabled:opacity-50 disabled:cursor-not-allowed",
+      )}
+      aria-label={`Sort by name (${isAscending ? "ascending" : "descending"})`}
     >
-      {sortOrder === "desc" ? (
+      {isAscending ? (
         <ArrowUpAZ className="h-4 w-4" />
       ) : (
         <ArrowDownAZ className="h-4 w-4" />
       )}
-      Sort by Name
+      <span className="hidden sm:inline">Name</span>
     </Button>
   );
-};
+}
+
+function cn(...classes: (string | boolean | undefined | null)[]): string {
+  return classes.filter(Boolean).join(" ");
+}
