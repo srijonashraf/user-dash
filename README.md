@@ -115,7 +115,6 @@ user-dash/
 ├── server/              # Express backend
 │   ├── src/
 │   │   ├── routes/      # API routes
-│   │   ├── controllers/ # Request handlers
 │   │   └── services/    # Business logic
 │   ├── prisma/
 │   │   └── schema.prisma
