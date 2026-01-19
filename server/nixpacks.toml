@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["nodejs_22"]
-
-[phases.install]
-cmds = ["pnpm install --prod"]
-
-[start]
-cmd = "pnpm run start"
