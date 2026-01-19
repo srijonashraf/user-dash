@@ -28,7 +28,7 @@ Provides user management features with search, filtering, user details, and acti
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/srijonashraf/user-dash
 cd user-dash
 ```
 
