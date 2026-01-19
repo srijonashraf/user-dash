@@ -8,11 +8,16 @@ import routes from "./routes/index.js";
 
 const createExpressApp = (): Express => {
   const app: Express = express();
+  app.set("trust proxy", 1);
 
   // Middleware setup
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use(cors());
+  app.use(
+    cors({
+      origin: ["http://localhost:5173", "https://user-dash-tixio.vercel.app"],
+    }),
+  );
   app.use(helmet());
   app.use(
     rateLimit({
