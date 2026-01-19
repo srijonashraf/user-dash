@@ -3,6 +3,7 @@ import { prisma } from "../lib/db/prisma.js";
 import { trimOrUndefined } from "../lib/utils/string.js";
 import { UserQueryParams } from "../types/index.js";
 
+// Get all users
 export const getUsers = async (params: UserQueryParams): Promise<User[]> => {
   const role = params.role as Role;
   const search = trimOrUndefined(params.search);
@@ -28,6 +29,7 @@ export const getUsers = async (params: UserQueryParams): Promise<User[]> => {
   return users;
 };
 
+// Get user by id
 export const getUserById = async (id: string): Promise<User> => {
   const user = await prisma.user.findUnique({
     where: { id },
@@ -40,6 +42,7 @@ export const getUserById = async (id: string): Promise<User> => {
   return user;
 };
 
+// Toggle user active status
 export const toggleActiveStatus = async (id: string): Promise<User> => {
   const user = await prisma.user.findUnique({
     where: { id },

@@ -11,6 +11,7 @@ import { UserQueryParams } from "../types/index.js";
 
 const router = Router();
 
+// Get all users
 router.get(
   "/",
   catchAsync(async (req: Request, res: Response) => {
@@ -24,6 +25,7 @@ router.get(
   }),
 );
 
+// Get user by id
 router.get(
   "/:id",
   catchAsync(async (req: Request, res: Response) => {
@@ -37,6 +39,7 @@ router.get(
   }),
 );
 
+// Toggle user active status
 router.patch(
   "/:id/toggle-active",
   catchAsync(async (req: Request, res: Response) => {
