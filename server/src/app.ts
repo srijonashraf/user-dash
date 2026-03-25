@@ -5,6 +5,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import config from "./config/config.js";
 import routes from "./routes/index.js";
+import errorHandler from "./lib/middleware/error-handler.js";
 
 const createExpressApp = (): Express => {
   const app: Express = express();
@@ -35,6 +36,9 @@ const createExpressApp = (): Express => {
   app.get("/", (_req: Request, res: Response) => {
     res.send("User Dash API is running.");
   });
+
+  // Global error handler
+  app.use(errorHandler);
 
   return app;
 };

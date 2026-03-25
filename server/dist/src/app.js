@@ -4,6 +4,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import config from "./config/config.js";
 import routes from "./routes/index.js";
+import errorHandler from "./lib/middleware/error-handler.js";
 const createExpressApp = () => {
     const app = express();
     app.set("trust proxy", 1);
@@ -26,6 +27,8 @@ const createExpressApp = () => {
     app.get("/", (_req, res) => {
         res.send("User Dash API is running.");
     });
+    // Global error handler
+    app.use(errorHandler);
     return app;
 };
 export default createExpressApp;
