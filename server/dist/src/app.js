@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import config from "./config/config.js";
 import routes from "./routes/index.js";
@@ -14,7 +13,6 @@ const createExpressApp = () => {
     app.use(cors({
         origin: ["http://localhost:5173", "https://user-dash-tixio.vercel.app"],
     }));
-    app.use(helmet());
     app.use(rateLimit({
         windowMs: config.server.rateLimit.windowMs,
         max: config.server.rateLimit.max,
